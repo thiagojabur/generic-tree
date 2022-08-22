@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Node {
 	private int valor;
     Node noPai;
-	ArrayList<Node> nosFilhos = new ArrayList<>();
+	ArrayList<Node> children = new ArrayList<>();
 	
 	public Node(int valor) {
 		this.valor = valor;
@@ -23,14 +23,17 @@ public class Node {
 		this.noPai = noPai;
 	}	
 	public void addFilho(Node noFilho) {
-		nosFilhos.add(noFilho);
+		children.add(noFilho);
 		noFilho.setNoPai(this); 
 	}
 	
 	public ArrayList getFilhos() {
-		return nosFilhos;
+		return children;
 	}
 	
+	public int grau() {
+		return children.size();
+	}
 	public String toString() {
 		return valor + "";
 	}
